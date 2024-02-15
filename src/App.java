@@ -5,6 +5,7 @@ public class App {
         String nome = "Deivid";
         String tipoDeConta = "Corrente";
         Double saldoDaConta = 3700.00;
+        Double saldoRestantaConta = 0;
         
 
         System.out.println("****************************");
@@ -39,7 +40,17 @@ public class App {
             //mostrar saldo e remover o menu e exibir opcoes de retorno.
             if (opcao == 1){
                 System.out.println("Seu saldo é: " +saldoDaConta);
-                opcao = leitura.nextInt()
+                
+            } else if (opcao == 2){
+                System.out.println("Qual o valor que deseja transferir: ");
+                double valor = leitura.nextDouble();
+                if (valor >= saldoDaConta){
+                    System.out.println("Voce nao possui saldo suficiente: " +saldoDaConta);
+                } else {
+                    System.out.println("Valor enviado: " +valor);
+                    saldoRestantaConta = saldoDaConta - valor;
+                    System.out.println("Seu Saldo Atual é de: " +saldoRestantaConta);
+                }
             }
         }
     }
